@@ -1,0 +1,17 @@
+# Secrets: never commit these
+.env
+.env.*
+!.env.example
+backend/private/*
+!backend/private/game_secrets.example.json
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.db
+
+# Node
+node_modules/
+dist/

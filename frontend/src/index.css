@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #07090f;
+  --color-panel: #0e131d;
+  --color-raised: #151c2a;
+  --color-edge: #232d40;
+  --color-neon: #3dffb4;
+  --color-cyan: #45d6ff;
+  --color-amber: #ffc857;
+  --color-danger: #ff5d73;
+  --color-dim: #8793a8;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+}
+
+body {
+  background:
+    radial-gradient(60rem 30rem at 50% -10rem, rgb(61 255 180 / 0.08), transparent),
+    var(--color-ink);
+  color: #e6ebf5;
+  min-height: 100dvh;
+}
+
+@layer components {
+  .panel {
+    @apply rounded-xl border border-edge bg-panel p-4 sm:p-6;
+  }
+  .heading {
+    @apply font-mono font-bold uppercase tracking-widest;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-neon px-4 py-2.5 font-mono text-sm font-bold uppercase tracking-wide text-ink transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-edge bg-raised px-3 py-2 font-mono text-xs font-semibold uppercase tracking-wide text-slate-200 transition hover:border-neon hover:text-neon disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-edge bg-raised px-3 py-2 font-mono text-xs font-semibold uppercase tracking-wide text-slate-200 transition hover:border-danger hover:text-danger disabled:cursor-not-allowed disabled:opacity-40;
+  }
+  .input {
+    @apply w-full rounded-lg border border-edge bg-ink px-3 py-2.5 text-base text-slate-100 placeholder:text-dim/60 focus:border-neon focus:outline-none;
+  }
+  .label {
+    @apply mb-1 block font-mono text-xs uppercase tracking-wider text-dim;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full border border-edge px-2.5 py-0.5 font-mono text-[11px] uppercase tracking-wider text-dim;
+  }
+}
